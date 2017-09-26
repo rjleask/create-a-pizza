@@ -1,7 +1,8 @@
 body {
   height: 100vh;
 }
-h1{
+
+h1 {
   color: #e30613;
 }
 
@@ -9,10 +10,14 @@ h3 {
   margin: 0;
   padding: 0;
 }
-h2{
+
+h2 {
   margin-left: 10px;
+  text-decoration: underline;
 }
-li{
+
+li {
+  background: #75f77a;
   display: none;
 }
 
@@ -21,21 +26,24 @@ input {
   text-align: center;
   font-size: 16px;
   background: #fff484;
-  border: 1px solid gray;
+  border: 1px solid #40b122;
   border-radius: 4px;
   color: #e30613;
 }
-.container{
-  display:flex;
+
+.container {
+  display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-.displayPizzas{
-  text-align: left;
-  margin:10px;
-  padding: 7px;
-}
 
+.displayPizzas {
+  text-align: left;
+  margin: 5px;
+  padding: 7px;
+  background: #0ebb15;
+  color: white;
+}
 
 .makePizza {
   /*border: 1px solid red;*/
@@ -50,33 +58,46 @@ input {
   display: inline-block;
   margin-left: 2%;
 }
-.pizzasForDelivery, .deliveryButtonForm{
+
+.pizzasForDelivery,
+.deliveryButtonForm {
   display: inline-block;
 }
-.deliveredWrapper, .deliveryWrapper{
+
+.deliveredWrapper,
+.deliveryWrapper {
   display: inline-block;
   vertical-align: top;
 }
 
-.displayToppings{
+.displayToppings {
   display: block;
   font-style: italic;
   margin-left: 10px;
 }
+
 .devour-button {
-  background: #e30613;
+  background: white;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 16px;
   margin-left: 10px;
-  color: white;
+  color: #e30613;
+  border: 1px solid;
 }
-.devour-button:hover{
+
+.devour-button:hover {
+  background: #e30613;
+  color:white;
   cursor: pointer;
 }
-.deleteButtonBox,.pizzasDelivered{
+
+.deleteButtonBox,
+.pizzasDelivered {
   display: inline-block;
 }
+
+
 /*.fa {
   margin-left: 8px;
 }
@@ -88,11 +109,17 @@ input {
 #submit {
   padding: 7px 17px;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid #0ebb15;
   background: #fff484;
   display: block;
   margin: 10px auto;
   font-size: 16px;
-  color: #e30613;
+  color: #0ebb15;
+  font-weight: bold;
 }
 
+#submit:hover {
+  background:#0ebb15;
+  color:white; 
+  cursor: pointer;
+}

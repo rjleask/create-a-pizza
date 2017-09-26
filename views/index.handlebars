@@ -39,7 +39,7 @@
 <form action="/" method="POST">
 	<input type="text" placeholder="Pizza Name" name="pizza" id='zaName' autocomplete="off"></input>
 	<input type="text" placeholder="Toppings" name="toppings" id='zaToppings' autocomplete="off"></input>
-	<button type="submit" id="submit">Submit</button>
+	<button type="submit" id="submit">Create</button>
 </form>
 </div>
 {{!-- if its marked as delivered, populate the delivered box --}}
@@ -49,6 +49,7 @@
 	  <div class="wrapper">
 	    <div class="pizzasDelivered">
           <input type="text" class="displayPizzas" value="{{this.id}}:{{this.pizza_name}}" readonly="readonly">
+          <li>{{this.toppings}}</li>
 	    </div>
 	    <div class="deleteButtonBox">
 	    	<form action="/{{this.id}}?_method=DELETE" method="POST">
