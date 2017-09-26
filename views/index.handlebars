@@ -1,0 +1,80 @@
+
+{{!-- <div class="all-pizzas">
+<ul>
+  {{#each pizza}}
+  	<li>
+       <p>NAME: {{this.pizza_name}}</p>
+       <p>TOPPINGS: {{this.toppings}}</p>
+  	</li>
+  {{/each}}
+</ul>
+</div> --}}
+<div class="container">
+<div class="deliveryWrapper">
+	<h2>Pizzas-To-Deliver</h2>
+  {{#each pizza}}
+    {{#unless this.devoured}}
+    <div class="wrapper">
+    <div class="pizzasForDelivery">
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="text" class="displayPizzas" value="{{this.id}}:{{this.pizza_name}}" readonly="readonly">
+          <li>{{this.toppings}}</li>
+        </form>
+      </div>
+        <div class="deliveryButtonForm">
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden"  name="devour" value="true">
+          <button type="submit" class="devour-button">Deliver</button>
+        </form>
+      </div>
+    </div>
+    {{/unless}}
+  {{/each}}
+</div>
+<div class="makePizza">
+	<h1>Pizza Me</h1>
+	<div class="imgBox">
+		 <img src="https://images.vexels.com/media/users/3/139919/isolated/lists/7c8bba2a6e3ab9e5678128cd1c50aede-cheese-pizza-cartoon.png">
+	</div>
+<form action="/" method="POST">
+	<input type="text" placeholder="Pizza Name" name="pizza" id='zaName' autocomplete="off"></input>
+	<input type="text" placeholder="Toppings" name="toppings" id='zaToppings' autocomplete="off"></input>
+	<button type="submit" id="submit">Submit</button>
+</form>
+</div>
+{{!-- if its marked as delivered, populate the delivered box --}}
+<div class="deliveredWrapper"><h2>Pizzas Delivered</h2>
+	{{#each pizza}}
+	  {{#if this.devoured}}
+	  <div class="wrapper">
+	    <div class="pizzasDelivered">
+          <input type="text" class="displayPizzas" value="{{this.id}}:{{this.pizza_name}}" readonly="readonly">
+	    </div>
+	    <div class="deleteButtonBox">
+	    	<form action="/{{this.id}}?_method=DELETE" method="POST">
+          <button type="submit" class="devour-button" id="deleteButton">X</button>
+	    	</form>
+	    </div>
+	  </div>
+	  {{/if}}
+	{{/each}}
+</div>
+</div>
+
+{{!-- handle the client side display --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$('body').on('click','.devour-button',function(){
+		 $(this).parents('div:first').fadeOut(500,function(){
+       	$(this).remove();
+       })
+});
+	$('body').on({
+    mouseenter: function () {
+        $(this).siblings().addClass('displayToppings');
+    },
+    mouseleave: function () {
+        $('li').removeClass('displayToppings');  
+    }
+}, ".displayPizzas");
+</script>
