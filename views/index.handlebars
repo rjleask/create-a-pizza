@@ -70,6 +70,7 @@
        	$(this).remove();
        })
 });
+  // toggle topping display
 	$('body').on({
     mouseenter: function () {
         $(this).siblings().addClass('displayToppings');
@@ -78,4 +79,13 @@
         $('li').removeClass('displayToppings');  
     }
 }, ".displayPizzas");
+  // check inputs are filled out
+  $("body").on("click","#submit",function(e){
+      // alert($("zaToppings").val());
+     if($.trim($("#zaToppings").val()) === "" || $.trim($("#zaName").val()) === "" ){
+      e.preventDefault();
+      alert("Must fill out fields");
+      return false;
+     }
+  })
 </script>
